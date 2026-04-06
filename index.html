@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copy Helper</title>
+
+<style>
+:root {
+    --bg: #ffffff;
+    --card: #f3f4f6;
+    --border: #d1d5db;
+    --text: #0f172a;
+    --muted: #4b5563;
+    --yellow-soft: #fde68a;
+    --green-exp: #bbf7d0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+}
+
+/* BUILD */
+.build-btn {
+    width:100%;
+    margin-bottom:10px;
+    background:#e5e7eb;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:8px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+/* ENV */
+.env-links { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; }
+.env-row { display:grid; grid-template-columns:1fr 1fr auto; gap:6px; }
+
+.env-btn {
+    padding:6px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    font-size:11px;
+    cursor:pointer;
+}
+
+.yellow { background: var(--yellow-soft); }
+.green { background: var(--green-exp); }
+
+.link-btn {
+    border:none;
+    background:#dbeafe;
+    color:#1d4ed8;
+    padding:2px 6px;
+    border-radius:5px;
+    font-size:9.5px;
+    cursor:pointer;
+}
+
+/* TOP */
+.top-links {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-bottom:18px;
+}
+
+.top-btn {
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:7px;
+    border-radius:10px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+/* SECTION */
+.section { margin-bottom:20px; }
+
+.section h2 {
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+/* CARDS */
+.card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:5px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    margin-bottom:5px;
+    min-width:0;
+}
+
+.card-double {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
+}
+
+.sub-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:5px;
+    display:flex;
+    align-items:center;
+    gap:4px;
+    min-width:0;
+}
+
+.input, textarea {
+    flex:1;
+    min-width:0;
+    border:none;
+    background:transparent;
+    font-size:10.5px;
+    outline:none;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:pre-wrap;
+    resize: none;
+}
+
+.copy-btn {
+    border:none;
+    background:#dbeafe;
+    color:#1d4ed8;
+    padding:2px 5px;
+    border-radius:5px;
+    font-size:9px;
+    cursor:pointer;
+    position: relative;
+}
+
+.copy-btn.copied::after {
+    content: 'Copied!';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background:#1d4ed8;
+    color:white;
+    font-size:8px;
+    padding:2px 5px;
+    border-radius:4px;
+    opacity:1;
+}
+
+/* DEVICES */
+.devices-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(60px,1fr));
+    gap:6px;
+}
+
+.device-btn {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:10px;
+    font-size:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    white-space: pre-line; /* texto visual en varias líneas */
+    position: relative;
+}
+
+.device-btn.copied::after {
+    content: 'Copied!';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background:#1d4ed8;
+    color:white;
+    font-size:8px;
+    padding:2px 5px;
+    border-radius:4px;
+    opacity:1;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- BUILD -->
+<button class="build-btn" onclick="goTo('https://github.com/Expensify/App/releases')">🤖 BUILD</button>
+
+<!-- ENV -->
+<div class="env-links">
+<div class="env-row">
+<button class="env-btn yellow" onclick="goTo('https://staging.expensify.com/')">STG</button>
+<button class="env-btn yellow" onclick="goTo('https://expensify.com/')">PRD</button>
+<button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538311/testcases/11657791')">Evidence</button>
+</div>
+<div class="env-row">
+<button class="env-btn green" onclick="goTo('https://staging.new.expensify.com/')">STG</button>
+<button class="env-btn green" onclick="goTo('https://new.expensify.com/')">PRD</button>
+<button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538310/testcases/11651253')">Evidence</button>
+</div>
+</div>
+
+<!-- TOP -->
+<div class="top-links">
+<button class="top-btn" onclick="goTo('https://app.slack.com/client/E8J4YNJHH/C05HDAVNCH4')">💬 Slack</button>
+<button class="top-btn" onclick="goTo('https://my.applause.com/u/internal/projects/148/time/time-tasks')">⏱ Time</button>
+<button class="top-btn" onclick="goTo('https://docs.google.com/spreadsheets/d/11-K7VLr818MiTT3V3WzcH5_15wbNEn5KyvTsH9KjGfA/edit?gid=1998872475#gid=1998872475')">✨ Magic</button>
+<button class="top-btn" onclick="goTo('https://expensify.1password.com/')">🔐 1Pass</button>
+<button class="top-btn" onclick="goTo('https://github.com/Expensify/App/issues?q=is%3Aissue')">🐙 Issues</button>
+<button class="top-btn" onclick="goTo('https://ki-finder-195221318961.us-central1.run.app/')">🔵 KI</button>
+</div>
+
+<!-- DEVICES -->
+<div class="section">
+<h2>DEVICES</h2>
+<div class="devices-grid">
+<button class="device-btn" data-copy=" Mac / Chrome" onclick="copyDevice(this)">Mac</button>
+<button class="device-btn" data-copy=":android: Samsung s21 / Android 15" onclick="copyDevice(this)">Samsung</button>
+<button class="device-btn" data-copy=" iPhone 13 / 18.6.2" onclick="copyDevice(this)">iPhone</button>
+<button class="device-btn" data-copy="Windows 11 / Chrome" onclick="copyDevice(this)">Windows</button>
+<button class="device-btn" data-copy=" iPad 7th Gen / 18.6.2" onclick="copyDevice(this)">iPad</button>
+</div>
+</div>
+
+<!-- COMUN -->
+<div class="section">
+<h2>COMUN</h2>
+<div class="card"><input class="input" value="jsat+6abr@applausemail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+<div class="card"><input class="input" value="jose.sat94+6abr@gmail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
+<!-- APPLAUSETESTER -->
+<div class="section">
+<h2>APPLAUSETESTER GMAIL</h2>
+<div class="card-double">
+<div class="sub-card"><input class="input" value="applausetester@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+<div class="sub-card"><input class="input" value="ghoul-eyesore-topmost-patroon-wreckage-slough" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+</div>
+
+<div class="section"><h2>EXPENSIFAIL</h2>
+<div class="card"><input class="input" value="applausetester+js2026@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
+<div class="section"><h2>PENDING RECEIPT</h2>
+<div class="card"><input class="input" value="applausetester+pendingreceipt@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
+<div class="section"><h2>TEMPLATE EXPORT</h2>
+<div class="card"><input class="input" value="applausetester+templateexport@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
+<div class="section"><h2>BILLPAY</h2>
+<div class="card"><input class="input" value="applausetester+billpay@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
+<div class="section"><h2>TESTFLIGHT</h2>
+<div class="card-double">
+<div class="sub-card"><input class="input" value="applausetester@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+<div class="sub-card"><input class="input" value="Pass_Good1" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+</div>
+
+<!-- BUG REPORT -->
+<div class="section">
+<h2>BUG REPORT</h2>
+<div class="card">
+<textarea class="input" readonly rows="3">1. Launch Expensify App
+2. Log in with valid credentials
+3. Navigate to</textarea>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+</div>
+
+<!-- PR's -->
+<div class="section">
+<h2>PR's</h2>
+<div class="card">
+<textarea class="input" readonly rows="2">The user remains on the app with an unexpired session and is not redirected to sign in again. Being able to perform any action</textarea>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+</div>
+
+<!-- CHAT -->
+<div class="section">
+<h2>CHAT</h2>
+<div class="card">
+<textarea class="input" readonly rows="2">Hi team. How can I proceed? TY.</textarea>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+<div class="card">
+<textarea class="input" readonly rows="2">OK, Im gonna check it as soon as I get home. TY.</textarea>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+</div>
+
+<!-- OTHERS -->
+<div class="section">
+<h2>OTHERS</h2>
+
+<div class="card">
+<span>🇬</span>
+<input class="input" value="uV#Wv4U*F*g3Тер" readonly>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+
+<div class="card-double">
+<div class="sub-card">
+<span>🇺</span>
+<input class="input" value="Betheone15!" readonly>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+<div class="sub-card">
+<input class="input" value="Takerisk111!$" readonly>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+</div>
+
+<div class="card">
+<span>🇦</span>
+<input class="input" value="Betheonenow123!" readonly>
+<button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button>
+</div>
+
+</div>
+
+</div>
+
+<script>
+function copyText(btn, el){
+    navigator.clipboard.writeText(el.value).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),1000);
+    });
+}
+
+function copyDevice(btn){
+    const text = btn.getAttribute('data-copy');
+    navigator.clipboard.writeText(text).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),1000);
+    });
+}
+
+function goTo(url){window.open(url,'_blank');}
+</script>
+
+</body>
+</html>

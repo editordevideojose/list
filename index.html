@@ -182,7 +182,7 @@ body {
     align-items:center;
     justify-content:center;
     text-align:center;
-    white-space: pre-line; /* texto visual en varias líneas */
+    white-space: pre-line;
     position: relative;
 }
 
@@ -205,10 +205,8 @@ body {
 <body>
 <div class="container">
 
-<!-- BUILD -->
 <button class="build-btn" onclick="goTo('https://github.com/Expensify/App/releases')">🤖 BUILD</button>
 
-<!-- ENV -->
 <div class="env-links">
 <div class="env-row">
 <button class="env-btn yellow" onclick="goTo('https://staging.expensify.com/')">STG</button>
@@ -222,7 +220,6 @@ body {
 </div>
 </div>
 
-<!-- TOP -->
 <div class="top-links">
 <button class="top-btn" onclick="goTo('https://app.slack.com/client/E8J4YNJHH/C05HDAVNCH4')">💬 Slack</button>
 <button class="top-btn" onclick="goTo('https://my.applause.com/u/internal/projects/148/time/time-tasks')">⏱ Time</button>
@@ -232,26 +229,23 @@ body {
 <button class="top-btn" onclick="goTo('https://ki-finder-195221318961.us-central1.run.app/')">🔵 KI</button>
 </div>
 
-<!-- DEVICES -->
 <div class="section">
 <h2>DEVICES</h2>
 <div class="devices-grid">
-<button class="device-btn" data-copy=" Mac / Chrome" onclick="copyDevice(this)">Mac</button>
-<button class="device-btn" data-copy=":android: Samsung s21 / Android 15" onclick="copyDevice(this)">Samsung</button>
-<button class="device-btn" data-copy=" iPhone 13 / 18.6.2" onclick="copyDevice(this)">iPhone</button>
-<button class="device-btn" data-copy="Windows 11 / Chrome" onclick="copyDevice(this)">Windows</button>
-<button class="device-btn" data-copy=" iPad 7th Gen / 18.6.2" onclick="copyDevice(this)">iPad</button>
+<button class="device-btn" data-copy="Mac/Chrome" onclick="copyDevice(this)">Mac</button>
+<button class="device-btn" data-copy="Samsung s21/Android 15" onclick="copyDevice(this)">Samsung</button>
+<button class="device-btn" data-copy="iPhone 13/18.6.2" onclick="copyDevice(this)">iPhone</button>
+<button class="device-btn" data-copy="Windows 11/Chrome" onclick="copyDevice(this)">Windows</button>
+<button class="device-btn" data-copy="iPad 7th Gen/18.6.2" onclick="copyDevice(this)">iPad</button>
 </div>
 </div>
 
-<!-- COMUN -->
 <div class="section">
 <h2>COMUN</h2>
 <div class="card"><input class="input" value="jsat+6abr@applausemail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
 <div class="card"><input class="input" value="jose.sat94+6abr@gmail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
 </div>
 
-<!-- APPLAUSETESTER -->
 <div class="section">
 <h2>APPLAUSETESTER GMAIL</h2>
 <div class="card-double">
@@ -276,6 +270,10 @@ body {
 <div class="card"><input class="input" value="applausetester+billpay@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
 </div>
 
+<div class="section"><h2>PDF RECEIPT</h2>
+<div class="card"><input class="input" value="applausetester+pdf@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
+</div>
+
 <div class="section"><h2>TESTFLIGHT</h2>
 <div class="card-double">
 <div class="sub-card"><input class="input" value="applausetester@applause.expensifail.com" readonly><button class="copy-btn" onclick="copyText(this,this.previousElementSibling)">Copy</button></div>
@@ -283,7 +281,6 @@ body {
 </div>
 </div>
 
-<!-- BUG REPORT -->
 <div class="section">
 <h2>BUG REPORT</h2>
 <div class="card">
@@ -294,7 +291,6 @@ body {
 </div>
 </div>
 
-<!-- PR's -->
 <div class="section">
 <h2>PR's</h2>
 <div class="card">
@@ -303,7 +299,6 @@ body {
 </div>
 </div>
 
-<!-- CHAT -->
 <div class="section">
 <h2>CHAT</h2>
 <div class="card">
@@ -316,7 +311,6 @@ body {
 </div>
 </div>
 
-<!-- OTHERS -->
 <div class="section">
 <h2>OTHERS</h2>
 

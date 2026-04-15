@@ -270,20 +270,50 @@ body {
 <!-- LINKS -->
 <div id="links" class="tab-content active">
 
-<button class="build-btn" onclick="goTo('https://github.com/Expensify/App/releases')">🤖 BUILD</button>
+<div style="display:flex; justify-content:center; gap:10px; margin-top:10px; margin-bottom:10px;">
+    
+    <!-- ANDROID REAL -->
+    <button onclick="goTo('https://github.com/Expensify/App/releases')" 
+    style="width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#e5e7eb;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" width="20">
+    </button>
+
+    <!-- CHECKLIST -->
+    <button onclick="goTo('https://editordevideojose.github.io/notes/')" 
+    style="width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#e5e7eb;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+    </button>
+
+    <!-- GOOGLE SHEETS REAL -->
+    <button onclick="goTo('https://docs.google.com/spreadsheets/d/1SXl7ZFSe1-qPzsDxTZAwpKxSEtyoOsOJQDXcmm3Qtbk/edit?gid=1817419333#gid=1817419333')" 
+    style="width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:#e5e7eb;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg" width="20">
+    </button>
+
+</div>
 
 
 <div class="env-links">
-<div class="env-row">
-<button class="env-btn yellow" onclick="goTo('https://staging.expensify.com/')">STG</button>
-<button class="env-btn yellow" onclick="goTo('https://expensify.com/')">PRD</button>
-<button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538311/testcases/11657791')">Evidence</button>
+
+<div class="env-row" style="grid-template-columns:1fr 1fr auto auto;">
+    <button class="env-btn yellow" onclick="goTo('https://staging.expensify.com/')">STG</button>
+    <button class="env-btn yellow" onclick="goTo('https://expensify.com/')">PRD</button>
+
+    <button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538311/issues/new')">🐞</button>
+    <button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538311/testcases/11657791')">Evidence</button>
 </div>
-<div class="env-row">
-<button class="env-btn green" onclick="goTo('https://staging.new.expensify.com/')">STG</button>
-<button class="env-btn green" onclick="goTo('https://new.expensify.com/')">PRD</button>
-<button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538310/testcases/11651253')">Evidence</button>
+
+<div class="env-row" style="grid-template-columns:1fr 1fr auto auto;">
+    <button class="env-btn green" onclick="goTo('https://staging.new.expensify.com/')">STG</button>
+    <button class="env-btn green" onclick="goTo('https://new.expensify.com/')">PRD</button>
+
+    <button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538310/issues/new')">🐞</button>
+    <button class="link-btn" onclick="goTo('https://platform.utest.com/testcycles/538310/testcases/11651253')">Evidence</button>
 </div>
+
 </div>
 
 <div class="top-links">
